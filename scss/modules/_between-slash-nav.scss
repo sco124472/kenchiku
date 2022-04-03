@@ -1,0 +1,66 @@
+@use "./../base/font" as ft;
+@use "./../base/mediaquery" as md;
+@use "./../base/color" as cl;
+.between-slash-nav {
+  &__inner {
+    display: flex;
+  }
+  &__item {
+    position: relative;
+    margin-right: 35px;
+    @include md.tab {
+      margin-right: 25px;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: -17.5px;
+      transform: rotate(40deg) translateY(-50%);
+      transform-origin: top;
+      width: 1px;
+      height: 30px;
+      background-color: cl.$light;
+      @include md.tab {
+        right: -12.5px;
+      }
+    }
+    &:last-child {
+      margin-right: 0;
+      &::before {
+        content: none;
+      }
+    }
+  }
+  &__link {
+    text-align: center;
+
+    &:hover {
+      position: relative;
+      top: -2px;
+      .between-slash-nav {
+        &__head {
+          opacity: 0.7;
+        }
+        &__under-text {
+          opacity: 0.7;
+        }
+      }
+    }
+    & > *:last-child {
+      margin-bottom: 0;
+    }
+  }
+  &__head {
+    @include ft.font1(normal, 16, 16, 0);
+    color: cl.$light;
+    margin-bottom: 6px;
+    @include md.tab {
+      font-size: 1.4rem;
+    }
+  }
+  &__under-text {
+    @include ft.font2(normal, 10, 10, 0);
+    color: cl.$light;
+  }
+}

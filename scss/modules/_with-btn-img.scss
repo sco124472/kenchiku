@@ -1,0 +1,65 @@
+@use "./../base/font" as ft;
+@use "./../base/mediaquery" as md;
+@use "./../base/color" as cl;
+@use "./../layouts/content" as ct;
+.with-btn-img {
+  &__wrapper {
+    position: relative;
+    padding-bottom: 28px;
+    @include md.sp {
+      padding-bottom: 0;
+    }
+  }
+  &__img {
+    @include md.sp {
+      height: 230px;
+      object-fit: cover;
+    }
+  }
+  &__btn {
+    position: absolute;
+    top: calc(100% - 33px);
+    left: calc(100% + 8px);
+    transform: translateY(-50%) translateX(-100%);
+    @include md.sp {
+      top: 100%;
+      left: ct.$padding;
+      transform: translateY(-100%);
+    }
+  }
+}
+.with-btn-imgs {
+  display: flex;
+  flex-wrap: wrap;
+  &__item {
+    width: calc(33.33% - 16.5px);
+    margin-right: 24px;
+    padding-right: 8px;
+    &:last-child {
+      margin-right: 0;
+    }
+    @include md.sp {
+      width: 100%;
+      margin-right: 0;
+      padding-right: 0;
+    }
+  }
+  &--layout-steps {
+    .with-btn-imgs {
+      &__item {
+        &:first-child {
+          margin-top: 80px;
+          @include md.sp {
+            margin-top: 0;
+          }
+        }
+        &:nth-child(2) {
+          margin-top: 40px;
+          @include md.sp {
+            margin-top: 0;
+          }
+        }
+      }
+    }
+  }
+}

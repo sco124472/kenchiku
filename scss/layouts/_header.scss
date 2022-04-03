@@ -1,0 +1,52 @@
+@use "./../base/font" as ft;
+@use "./../base/mediaquery" as md;
+@use "./../base/color" as cl;
+
+.header {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 5;
+
+  &__inner {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 22px 36px;
+    @include md.sp {
+      padding: 18px 24px;
+    }
+  }
+
+  &__logo-wrapper {
+    width: 133px;
+    height: 33px;
+    margin-right: 30px;
+    @include md.sp {
+      width: 122px;
+      height: 26px;
+    }
+  }
+
+  &--bg-lighter {
+    background-color: cl.$light;
+    .between-slash-nav {
+      &__item {
+        &::before {
+          background-color: cl.$dark;
+        }
+      }
+      &__head {
+        color: cl.$dark;
+      }
+      &__under-text {
+        color: cl.$dark;
+      }
+    }
+  }
+  &--position-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+}

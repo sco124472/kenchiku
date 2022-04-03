@@ -1,0 +1,7 @@
+@use "./../base/mediaquery" as md;
+.pc_none {
+  display: none;
+  @include md.sp {
+    display: block;
+  }
+}

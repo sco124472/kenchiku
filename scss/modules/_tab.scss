@@ -1,0 +1,124 @@
+@use "./../base/font" as ft;
+@use "./../base/mediaquery" as md;
+@use "./../base/color" as cl;
+.tab {
+  width: 100%;
+  transition: 1s;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transform-style: preserve-3d;
+  perspective: 440px;
+  background-color: rgba(24, 40, 72, 1);
+  border: 2px solid rgba(24, 40, 72, 1);
+  @include md.sp {
+    display: block;
+    background-color: transparent;
+    border: none;
+    height: 6rem;
+  }
+  &:hover,
+  &:focus {
+    opacity: 0.7;
+  }
+  &__head {
+    @include ft.font2(normal, 16, 16, 0);
+    color: cl.$light;
+    padding: 0 75px 0 40px;
+    @include md.mv {
+      font-size: calc(1.4rem + ((1vw - 7.68px) * 0.5376));
+    }
+    @include md.sp {
+      position: relative;
+      display: inline-block;
+      font-size: 1.4rem;
+      background-color: rgba(24, 40, 72, 1);
+      border: 1px solid rgba(24, 40, 72, 1);
+      padding: 5px;
+      &::after {
+        position: absolute;
+        top: -1px;
+        left: 100%;
+        content: "";
+        display: inline-block;
+        border-style: solid;
+        border-width: 26px 0 0px 16px;
+        border-color: transparent transparent transparent rgba(24, 40, 72, 1);
+        width: 0;
+        height: 0;
+        margin-left: 1px;
+      }
+    }
+  }
+  &__contents {
+    position: relative;
+    transform: skewX(-40deg);
+    height: 56px;
+    max-width: 750px;
+    width: 100%;
+    background-color: cl.$light;
+    padding: 0 20px;
+    @include md.mv {
+      height: calc(3.6rem + ((1vw - 7.68px) * 4.9751));
+    }
+    @include md.sp {
+      transform: skewX(0);
+      height: 4.5rem;
+      border: 2px solid rgba(24, 40, 72, 1);
+      padding: 0 5px;
+    }
+  }
+  &__contents-inner {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+  &__date {
+    transform: skewX(40deg);
+    @include ft.font1(normal, 16, 24, 0);
+    color: cl.$dark;
+    margin-right: 22px;
+    margin-left: 28px;
+    @include md.mv {
+      font-size: calc(1.4rem + ((1vw - 7.68px) * 0.5376));
+    }
+    @include md.sp {
+      transform: skewX(0);
+      font-size: 1.4rem;
+      margin-left: 0;
+      margin-right: 5px;
+    }
+  }
+  &__category {
+    transform: skewX(40deg);
+    margin-right: 22px;
+    @include md.sp {
+      transform: skew(0);
+      margin-right: 10px;
+    }
+  }
+  &__title {
+    transform: skewX(40deg);
+    @include ft.font1(normal, 16, 24, 0);
+    color: cl.$dark;
+    @include md.mv {
+      font-size: calc(1.4rem + ((1vw - 7.68px) * 0.5376));
+    }
+    @include md.sp {
+      transform: skewX(0);
+      font-size: 1.4rem;
+      margin-right: 10px;
+    }
+  }
+  &__arrow {
+    width: 14px;
+    height: 2.46px;
+    border-bottom: 1px solid cl.$light;
+    border-right: 2px solid cl.$light;
+    transform: skewX(60deg);
+    margin: 0 20px;
+  }
+}

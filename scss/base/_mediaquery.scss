@@ -1,0 +1,25 @@
+$pc: 1362px; // PC
+$mv: 1170px; //main-visual用
+$tab: 1057px;
+$sp: 767px; // タブレット
+
+@mixin pc {
+  @media (max-width: ($pc)) {
+    @content;
+  }
+}
+@mixin mv {
+  @media (max-width: ($mv)) {
+    @content;
+  }
+}
+@mixin sp {
+  @media (max-width: ($sp)) {
+    @content;
+  }
+}
+@mixin tab {
+  @media (max-width: ($tab)) {
+    @content;
+  }
+}

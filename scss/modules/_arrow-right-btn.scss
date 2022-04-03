@@ -1,0 +1,69 @@
+@use "./../base/font" as ft;
+@use "./../base/mediaquery" as md;
+@use "./../base/color" as cl;
+.arrow-right-btn {
+  display: inline-block;
+  position: relative;
+  max-width: 256px;
+  width: 100%;
+  padding: 26px 3em 24px 1.5em;
+  background-color: #4b6cb7;
+  box-shadow: 0 2px 4px rgba(24, 40, 72, 0.9);
+  color: cl.$light;
+  @include ft.font1(normal, 16, 16, 0);
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.25s;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: calc(50% + 1px);
+    right: 1.8em;
+    width: 16px;
+    height: 1px;
+    transform: translateY(-50%);
+    background-color: cl.$light;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    top: calc(50% + 0.5px);
+    right: 1.8em;
+    width: 1px;
+    height: 5.46px;
+    background-color: cl.$light;
+    transform: translateY(-100%) rotate(300deg);
+    transform-origin: bottom;
+  }
+  &:hover,
+  &:focus {
+    opacity: 0.8;
+    margin-left: 20px;
+  }
+  @include md.sp {
+    padding: 15px 3em 14px 3em;
+    &:hover,
+    &:focus {
+      margin-left: 0px;
+    }
+  }
+  &--pale-colored {
+    max-width: 264px;
+    padding: 23px 3.5em 17px 24px;
+    @include ft.font3(normal, 16, 16, 0);
+    color: cl.$light;
+    background-color: rgba(24, 40, 72, 0.64);
+    text-align: left;
+    &:hover,
+    &:focus {
+      margin-left: 0;
+    }
+    @include md.sp {
+      max-width: 160px;
+      padding: 19px 3.1em 17px 0;
+      background-color: transparent;
+      box-shadow: none;
+    }
+  }
+}

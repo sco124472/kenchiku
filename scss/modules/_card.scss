@@ -1,0 +1,123 @@
+@use "./../base/font" as ft;
+@use "./../base/mediaquery" as md;
+@use "./../base/color" as cl;
+.card {
+  box-shadow: 0px 0px 10px rgba(25, 25, 25, 0.25);
+  @include md.sp {
+    box-shadow: none;
+  }
+  &--link {
+    display: block;
+    color: currentColor;
+    text-decoration: none;
+    transition: 0.25s;
+    &:hover {
+      opacity: 0.75;
+      .card__text,
+      .card__title {
+        color: #e25c00;
+        text-decoration: underline;
+      }
+    }
+  }
+  &__img-wrapper {
+    position: relative;
+    width: 100%;
+    padding-top: 50.55%;
+  }
+  &__img {
+    position: absolute;
+    top: 50.25%;
+    width: 100%;
+    transform: translateY(-50%);
+  }
+  &__badge {
+    position: absolute;
+    display: block;
+    top: -10px;
+    left: -26px;
+    height: 52px;
+    width: 52px;
+    background-color: #182848;
+    z-index: 2;
+    @include md.sp {
+      height: 40px;
+      top: 100%;
+      left: 0;
+      transform: translateY(-100%);
+    }
+  }
+  &__badge-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    @include ft.font2(Medium, 24, 24, 0);
+    color: cl.$light;
+  }
+  &__body {
+    padding: 35px 24px;
+    background-color: cl.$light;
+    & > *:last-child {
+      margin-bottom: 0;
+    }
+    @include md.sp {
+      background-color: transparent;
+      padding: 20px;
+    }
+  }
+  &__title {
+    @include ft.font1(Medium, 24, 24, 0);
+    color: #b8614b;
+    margin-bottom: 27px;
+    @include md.sp {
+      font-size: 20px;
+      margin-bottom: 23px;
+    }
+  }
+  &__text {
+    @include ft.font1(normal, 16, 32, 0);
+    color: cl.$dark;
+    @include md.sp {
+      font-size: 14px;
+    }
+  }
+}
+
+.cards {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  @include md.sp {
+    margin-right: calc(50% - 50vw);
+    margin-left: calc(50% - 50vw);
+  }
+  &--col2 {
+    margin-bottom: -30px;
+    & > .cards {
+      &__item {
+        width: calc(50% - 43px);
+        margin-bottom: 30px;
+        &:first-child {
+          margin-left: 27px;
+        }
+        &:last-child {
+          margin-left: 42px;
+        }
+        @include md.sp {
+          width: 100%;
+          margin-bottom: 20px;
+          &:first-child {
+            margin-left: 0;
+          }
+          &:last-child {
+            margin-left: 0;
+          }
+        }
+      }
+    }
+    @include md.sp {
+      margin-bottom: -20px;
+    }
+  }
+}

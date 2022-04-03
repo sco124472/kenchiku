@@ -1,0 +1,52 @@
+@use "./../base/font" as ft;
+@use "./../base/mediaquery" as md;
+@use "./../base/color" as cl;
+
+.main-visual {
+  width: 100%;
+  background: linear-gradient(90deg, #4b6cb7, #19294a);
+  overflow: hidden;
+  padding-top: 77px;
+  margin-bottom: 160px;
+
+  @include md.sp {
+    padding-top: 62px;
+    margin-bottom: 120px;
+  }
+  &__wrapper {
+    position: relative;
+    height: 680px;
+    @include md.sp {
+      height: 610px;
+    }
+  }
+
+  &__content-wrapper {
+    position: absolute;
+    top: calc(100% - 15px);
+    left: 0;
+    transform: translateY(-100%);
+    width: 100%;
+    z-index: 2;
+    @include md.sp {
+      top: calc(100% - 26px);
+    }
+  }
+  &__head {
+    width: 100%;
+    @include ft.font2(900, 96, 112, 20);
+    color: cl.$light;
+    text-shadow: 6px 6px 4px rgba(24, 40, 72, 0.5);
+    margin-bottom: 40px;
+    @include md.mv {
+      font-size: 7rem;
+    }
+    @include md.sp {
+      font-size: 4.8rem;
+      margin-bottom: 26px;
+    }
+  }
+  &__text {
+    margin-bottom: 100px;
+  }
+}

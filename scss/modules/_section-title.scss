@@ -1,0 +1,50 @@
+@use "./../base/font" as ft;
+@use "./../base/mediaquery" as md;
+@use "./../base/color" as cl;
+.section-title {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  @include md.sp {
+    justify-content: flex-start;
+  }
+  &__text {
+    @include ft.font2(bold, 48, 48, 0);
+    color: cl.$dark;
+    margin-right: 8px;
+    @include md.sp {
+      font-size: calc(3.2rem + ((1vw - 3.75px) * 4.0816));
+      line-height: 1;
+    }
+  }
+  &__translation {
+    @include ft.font1(Medium, 24, 24, 0);
+    margin-bottom: 5px;
+    color: cl.$base;
+    @include md.sp {
+      font-size: calc(2rem + ((1vw - 3.75px) * 1.0204));
+      line-height: 1;
+    }
+    &:before {
+      content: "／";
+      color: cl.$dark;
+      margin-right: 10px;
+    }
+  }
+  &--cl-lighter {
+    .section-title {
+      &__text {
+        color: cl.$light;
+      }
+      &__translation {
+        color: cl.$light;
+        &::before {
+          color: cl.$light;
+        }
+      }
+    }
+  }
+  &--pc-position-left {
+    justify-content: flex-start;
+  }
+}

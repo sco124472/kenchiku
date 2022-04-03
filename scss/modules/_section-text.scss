@@ -1,0 +1,14 @@
+@use "./../base/font" as ft;
+@use "./../base/mediaquery" as md;
+@use "./../base/color" as cl;
+.section-text {
+  @include ft.font1(normal, 16, 32, 20);
+  color: cl.$dark;
+  @include md.sp {
+    font-size: calc(1.36rem + ((1vw - 3.75px) * 0.5102));
+    line-height: 2;
+  }
+  &--text-lighter {
+    color: cl.$light;
+  }
+}

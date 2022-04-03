@@ -1,0 +1,36 @@
+@use "./../base/font" as ft;
+@use "./../base/mediaquery" as md;
+
+.recruit {
+  width: 100%;
+  background-color: #f0f0f0;
+  padding-top: 80px;
+  padding-bottom: 75px;
+  @include md.sp {
+    background: none;
+    overflow: hidden;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  &__title {
+    margin-bottom: 56px;
+    @include md.sp {
+      margin-bottom: 33px;
+    }
+  }
+  &__body {
+    @include md.sp {
+      background-color: #f0f0f0;
+      margin-left: calc(50% - 50vw);
+      margin-right: calc(50% - 50vw);
+      padding-bottom: 120px;
+    }
+  }
+  &__imgs {
+    margin-bottom: 40px;
+  }
+
+  &__btn-wrapper {
+    text-align: center;
+  }
+}

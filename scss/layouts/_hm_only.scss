@@ -1,0 +1,10 @@
+@use "./../base/mediaquery" as md;
+//ヘルパークラス
+.hm_only {
+  @include md.tab {
+    display: none;
+  }
+  @include md.sp {
+    display: block;
+  }
+}

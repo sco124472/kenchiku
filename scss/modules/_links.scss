@@ -1,0 +1,44 @@
+@use "./../base/font" as ft;
+@use "./../base/mediaquery" as md;
+@use "./../base/color" as cl;
+
+.links {
+  writing-mode: vertical-lr;
+  & > *:last-child {
+    margin-right: 0;
+  }
+  @include md.sp {
+    writing-mode: horizontal-tb;
+
+    & > *:last-child {
+      margin-bottom: 0;
+    }
+  }
+  &__group {
+    margin-right: 78px;
+
+    @include md.sp {
+      margin-right: 0;
+      margin-bottom: 64px;
+      & > *:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    & > *:last-child {
+      margin-right: 0;
+    }
+  }
+  &__item {
+    margin-right: 20px;
+
+    @include md.sp {
+      margin-left: 0;
+      margin-bottom: 23px;
+    }
+  }
+  &__link {
+    @include ft.font1(normal, 16, 16, 0);
+    color: cl.$light;
+  }
+}

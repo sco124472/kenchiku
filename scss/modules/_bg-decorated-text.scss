@@ -1,0 +1,46 @@
+@use "./../base/font" as ft;
+@use "./../base/mediaquery" as md;
+@use "./../base/color" as cl;
+.bg-decorated-text {
+  transform-style: preserve-3d;
+  perspective: 440px;
+
+  &__wrapper {
+    display: inline-block;
+    background-color: cl.$light;
+    box-shadow: 10px 5px 1px rgba(24, 40, 72, 1);
+    transform: skewX(-45deg);
+    padding: 0 20px;
+    margin-left: 35px;
+    margin-right: 35px;
+    @include md.sp {
+      transform: skewX(-30deg);
+      margin-right: 10px;
+      margin-left: 10px;
+      padding: 0 10px;
+    }
+  }
+  &__text {
+    @include ft.font1(bold, 32, 64, 0);
+    color: #182848;
+    transform: skewX(45deg);
+    padding-left: 10px;
+    padding-right: 10px;
+
+    @include md.sp {
+      transform: skewX(30deg);
+      font-size: 1.98rem;
+    }
+  }
+}
+
+.bg-decorated-texts {
+  display: flex;
+  flex-direction: column;
+  .bg-decorated-text {
+    margin-bottom: 16px;
+  }
+  & > *:last-child {
+    margin-bottom: 0;
+  }
+}

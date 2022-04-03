@@ -1,0 +1,30 @@
+@use "./../base/mediaquery" as md;
+
+.swiper-container {
+  display: flex;
+  width: 100%;
+  .swiper-wrapper {
+    //通常時のスライド
+    .swiper-slide {
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: right;
+      overflow: hidden;
+      opacity: 1;
+      @include md.pc {
+        background-position: left;
+        background-size: cover;
+      }
+    }
+  }
+  &--layout-pc {
+    .swiper-slide {
+      height: 680px;
+    }
+  }
+  &--layout-sp {
+    .swiper-slide {
+      height: 610px;
+    }
+  }
+}

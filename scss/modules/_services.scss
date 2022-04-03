@@ -1,0 +1,40 @@
+@use "./../base/font" as ft;
+@use "./../base/mediaquery" as md;
+@use "./../base/color" as cl;
+
+.services {
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 40px;
+  margin-bottom: 300px;
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 25%;
+    height: 100%;
+    background: #fff;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    transform: skewX(-40deg);
+    @include md.sp {
+      width: 45%;
+      right: -20%;
+      transform: skewX(-25deg);
+    }
+  }
+
+  @include md.sp {
+    padding-bottom: 48px;
+  }
+
+  .half-media {
+    position: relative;
+    top: 40px;
+    z-index: 3;
+    @include md.sp {
+      top: 0;
+    }
+  }
+}

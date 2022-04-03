@@ -1,0 +1,23 @@
+@mixin font1($font-weight, $fontsize, $line-height, $letter-spacing) {
+  font-family: "Noto Sans JP";
+  font-weight: $font-weight;
+  font-size: calc($fontsize/10) + rem;
+  line-height: calc($line-height/$fontsize);
+  letter-spacing: calc($letter-spacing/1000) + em;
+}
+
+@mixin font2($font-weight, $fontsize, $line-height, $letter-spacing) {
+  font-family: "Lato";
+  font-weight: $font-weight;
+  font-size: calc($fontsize/10) + rem;
+  line-height: calc($line-height/$fontsize);
+  letter-spacing: calc($letter-spacing/1000) + em;
+}
+
+@mixin font3($font-weight, $fontsize, $line-height, $letter-spacing) {
+  font-family: "Myriad Pro";
+  font-weight: $font-weight;
+  font-size: calc($fontsize/10) + rem;
+  line-height: calc($line-height/$fontsize);
+  letter-spacing: calc($letter-spacing/1000) + em;
+}

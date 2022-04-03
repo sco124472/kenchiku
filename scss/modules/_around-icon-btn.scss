@@ -1,0 +1,67 @@
+@use "./../base/font" as ft;
+@use "./../base/mediaquery" as md;
+@use "./../base/color" as cl;
+
+.around-icon-btn {
+  position: relative;
+  display: block;
+  max-width: 320px;
+  width: 100%;
+  color: cl.$light;
+  background-color: cl.$dark;
+  @include ft.font1(normal, 16, 16, 0);
+  padding: 23px 5.5em;
+  text-align: center;
+  transition: 0.5s;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 3em;
+    transform: translateY(-50%);
+    width: 25px;
+    height: 25px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    @include md.sp {
+      width: 18px;
+      height: 18px;
+    }
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    top: calc(50% - 3.4px);
+    right: 3em;
+    transform: translateY(-50%);
+    width: 14px;
+    height: 2.46px;
+    border-bottom: 1px solid cl.$light;
+    border-right: 2px solid cl.$light;
+    transform: skewX(60deg);
+  }
+  &:hover,
+  &:focus {
+    opacity: 0.8;
+  }
+  @include md.sp {
+    max-width: 100%;
+    font-size: 1.4rem;
+    padding-top: 17px;
+    padding-bottom: 17px;
+  }
+  &--left-icon-bulldozer {
+    &::before {
+      background-image: url(./../img/bulu-icon.png);
+    }
+  }
+  &--left-icon-factory {
+    &::before {
+      background-image: url(./../img/factory-icon.png);
+    }
+  }
+
+  &--bg-lighter {
+    background-color: #b8614b;
+  }
+}

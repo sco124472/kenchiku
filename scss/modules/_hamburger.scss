@@ -1,0 +1,60 @@
+@use "./../base/color" as cl;
+.hamburger {
+  position: absolute;
+  top: 23px;
+  right: 20px;
+
+  cursor: pointer;
+  text-align: center;
+  z-index: 7;
+  &__inner {
+    position: relative;
+    width: 20px;
+    height: 15.5px;
+  }
+  &__line {
+    display: block;
+    position: absolute;
+    width: 20px;
+    height: 1.5px;
+    left: 0px;
+    background: cl.$light;
+    transition: 0.3s ease-in-out;
+    &:nth-child(1) {
+      top: 0px;
+    }
+    &:nth-child(2) {
+      top: 7px;
+    }
+    &:nth-child(3) {
+      top: 14px;
+    }
+  }
+
+  &--open {
+    .hamburger {
+      &__line {
+        &:nth-child(1) {
+          top: 5px;
+          left: 0px;
+          transform: rotate(-45deg);
+        }
+        &:nth-child(2),
+        &:nth-child(3) {
+          top: 5px;
+          transform: rotate(45deg);
+        }
+      }
+    }
+  }
+  &--cl-dark {
+    .hamburger {
+      &__line {
+        background: cl.$dark;
+      }
+    }
+  }
+  &--position-fixed {
+    position: fixed;
+  }
+}

@@ -1,0 +1,56 @@
+@use "./../base/font" as ft;
+@use "./../base/mediaquery" as md;
+@use "./../base/color" as cl;
+.footer {
+  width: 100%;
+  overflow: hidden;
+  background-color: #182848;
+  padding-top: 80px;
+  @include md.sp {
+    padding-top: 36px;
+  }
+  &__body {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-bottom: 80px;
+    @include md.sp {
+      flex-direction: column-reverse;
+      padding-bottom: 41px;
+    }
+  }
+  &__logo-wrapper {
+    margin-bottom: 40px;
+    @include md.sp {
+      margin-bottom: 23px;
+    }
+  }
+  &__logo {
+    width: 200px;
+  }
+
+  &__right-wrapper {
+    position: relative;
+    top: 84px;
+    min-width: 254px;
+    @include md.sp {
+      top: 0;
+      min-width: none;
+      margin-bottom: 80px;
+    }
+  }
+
+  &__copyright {
+    background-color: #191919;
+  }
+  &__copyright-inner {
+    padding: 22px 0;
+  }
+  &__copyright-text {
+    @include ft.font1(normal, 12, 12, 0);
+    color: cl.$light;
+    @include md.sp {
+      @include ft.font1(normal, 10, 10, 0);
+    }
+  }
+}

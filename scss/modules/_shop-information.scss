@@ -1,0 +1,24 @@
+@use "./../base/font" as ft;
+@use "./../base/mediaquery" as md;
+@use "./../base/color" as cl;
+.shop-information {
+  &__item {
+    margin-bottom: 21px;
+    @include md.sp {
+      margin-bottom: 15px;
+    }
+  }
+  &__text {
+    @include ft.font1(normal, 16, 16, 20);
+    color: cl.$light;
+
+    //iosで電話番号の色が黒くなるのを防ぐ
+    a {
+      color: cl.$light;
+      text-decoration: none;
+    }
+    @include md.sp {
+      @include ft.font1(normal, 14, 14, 0);
+    }
+  }
+}
